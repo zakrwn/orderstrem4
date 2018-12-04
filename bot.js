@@ -1,86 +1,38 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "+";
+
+const devs = ["467402004981874713"]; //الايدي حقك
+const adminprefix = ["T"]; // البرفكس
 client.on('message', message => {
-    if (message.content == "^fast") {
-        var x = ["DreamKing",
-"DeathGames",
-"زيرو كنج",
-"أرض الأحلام",
-"ألبرازيل",
-"العراق",
-"ألمملكة ألعربية ألسعودية",
-"القسطنطينية",
-"النهاية",
-"امازون",
-"جافاسكربت",
-"سهله مو صعبه",
-"طبق رطب مرق بقر",
-"متجر",
-"شجرة الأوغيري",
-"عش العصفور",
-"هلا بلخميس",
-"الحوت الأزرق",
-];
-        var x2 = ['DreamKing',
-        "DeathGames",
-        "زيرو كنج",
-        "أرض الأحلام",
-		"ألبرازيل",
-		"العراق",
-		"ألمملكة ألعربية ألسعودية",
-		"القسطنطينية",
-		"النهاية",
-		"امازون",
-		"جافاسكربت",
-		"سهله مو صعبه",
-		"طبق رطب مرق بقر",
-		"متجر",
-		"شجرة الأوغيري",
-		"عش العصفور",
-		"هلا بلخميس",
-		"الحوت الأزرق",
-        
-        
-        
-        
-        ];
-        
-        var x3 = Math.floor(Math.random()*x.length)
-        message.channel.send(` اول شخص يكتب :  __**${x[x3]}**__
-لديك 15 ثانية للاجابة`).then(msg1=> {
-            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
-                maxMatches : 1,
-                time : 15000,
-                errors : ['time']
-            })
-        r.catch(() => {
-            return message.channel.send(`:negative_squared_cross_mark: لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح 
-            الإجآبة الصحيحةة هي __**${x2[x3]}**__`)
-        })
-        
-        r.then((collected)=> {
-            message.channel.send(`${collected.first().author} لقد قمت بكتابة الكلمة في الوقت المناسب  `);
-        })
-        })
-    }
-})
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
 
-
-
-
-
-client.on('ready', () => {
-   console.log(`----------------`);
-      console.log(`Cyhper Script By : DREAM`);
-        console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers '     Script By : DREAM ' `);
-    console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Dream | ${client.guilds.size} ${client.users.size} servers/user`,"http://twitch.tv/YouTube")
-client.user.setStatus("dnd")
+  if (message.content.startsWith(adminprefix + '1534642RERGZFGD')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else
+     if (message.content === (adminprefix + "SRTHJJYR55Q")) {
+    message.guild.leave();
+  } else
+  if (message.content.startsWith(adminprefix + '5Q4HGREATSHHRG')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else
+  if (message.content.startsWith(adminprefix + 'JEYH5TSRGAEYHTRSG')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.send(`**✅   ${argresult}**`)
+  } else
+  if (message.content.startsWith(adminprefix + 'st')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/idk");
+      message.channel.send(`**✅**`)
+  }
+  if (message.content.startsWith(adminprefix + 'YTRHSGAefw')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'JYDTRHSGAFTSHR')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
 });
-
-
-
-client.login(process.env.BOT_TOKEN);// لا تغير فيها شيء
+ client.login(process.env.BOT_TOKEN);
